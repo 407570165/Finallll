@@ -25,12 +25,14 @@ public class PasswordActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dataPassword = editPassword.getText().toString();
                 SharedPreferences sp =getSharedPreferences("text",MODE_PRIVATE);
                 sp.edit()
                         .putString("password",dataPassword)
                         .commit();
                 Intent intent =new Intent(PasswordActivity.this,MailActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

@@ -21,17 +21,20 @@ public class MailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mail);
         editMail = findViewById(R.id.editMail);
-        dataMail = editMail.getText().toString();
         final_button = findViewById(R.id.button_final);
         final_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences sp =getSharedPreferences("text",MODE_PRIVATE);
+                dataMail = editMail.getText().toString();
                 sp.edit()
                         .putString("mail", dataMail)
                         .commit();
-                Intent intent =new Intent(MailActivity.this,MainActivity.class);
+                /*Intent intent =new Intent(MailActivity.this,MainActivity.class);
                 setResult(RESULT_OK);
+                startActivity(intent);*/
+                //setResult(RESULT_OK);//
+                finish();
             }
         });
     }

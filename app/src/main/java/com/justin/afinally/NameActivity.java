@@ -22,13 +22,14 @@ public class NameActivity extends AppCompatActivity {
     }
 
     public void Next(View view) {
+        userName = editName.getText().toString();
         SharedPreferences sp =getSharedPreferences("text",MODE_PRIVATE);
         sp.edit()
                 .putString("user",userName)
                 .commit();
         Intent intent=new Intent(NameActivity.this,PasswordActivity.class);
         startActivity(intent);
-        /*setResult(RESULT_OK);
-        finish();*/
+        setResult(RESULT_OK);
+        finish();
     }
 }

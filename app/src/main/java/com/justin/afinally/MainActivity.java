@@ -14,12 +14,17 @@ public class MainActivity extends AppCompatActivity {
     private Button button;
     private EditText name;
     boolean isTrue=false;
+    private EditText password;
+    private EditText mail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         name = findViewById(R.id.edit_name);
         button = findViewById(R.id.summit_button);
+        password = findViewById(R.id.editText2);
+        mail = findViewById(R.id.editMail);
         name.setText("on");
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
                 String nameId = getSharedPreferences("text", MODE_PRIVATE)
                         .getString("user", "userName");
                 name.setText(nameId);
+                String passwordId = getSharedPreferences("text", MODE_PRIVATE)
+                        .getString("password", "dataPassword");
+                password.setText(passwordId);
+                String mailId = getSharedPreferences("text", MODE_PRIVATE)
+                        .getString("mail", "dataMail");
+                mail.setText(mailId);
             }
         }
     }
